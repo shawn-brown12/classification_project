@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Initial creation of readme for this project repo
-=======
 # Churn within the Realm of Telecom
 
 # Project Description
