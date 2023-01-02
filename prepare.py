@@ -20,9 +20,9 @@ def prep_telco(df):
     '''
     df['total_charges'] = df['total_charges'].replace(' ', '0')
     df['total_charges'] = df['total_charges'].astype(float)
-    df['churn'] = df['churn'].astype(bool)
+    #df['churn'] = df['churn'].astype(int)
     
-    to_dummy = ['gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 
+    to_dummy = ['churn', 'gender', 'partner', 'dependents', 'phone_service', 'multiple_lines', 'online_security', 
                 'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 
                 'paperless_billing', 'contract_type', 'internet_service_type', 
                 'payment_type']
@@ -38,9 +38,8 @@ def prep_telco(df):
         'streaming_movies_No', 'paperless_billing_No', 'gender', 'partner', 
         'dependents', 'phone_service', 'multiple_lines', 'online_security', 
         'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 
-        'paperless_billing', 'contract_type', 'internet_service_type', 
-        'payment_type', 'Unnamed: 0', 'payment_type_id', 'internet_service_type_id', 
-        'contract_type_id', 'customer_id']
+        'paperless_billing', 'payment_type', 'Unnamed: 0', 'payment_type_id', 'internet_service_type_id', 
+        'contract_type_id', 'customer_id', 'churn', 'churn_No']
     df.drop(columns=drop, inplace=True)
                  
     return df

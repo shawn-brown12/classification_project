@@ -18,15 +18,15 @@ My initial hypothesis is that the biggest drivers of churn will be their contrac
 
 My main questions to support this:
 
-- Does internet service type and churn have a relationship?
+- Is whether or not a customer churns independent of their internet service type?
 
-- Does contract type affect churn status?
+- Are contract type and churn status related?
 
-- Are phone service and internet service related?
+- What is the relationship between phone service and churn?
 
-- Does gender or age factor into churn?
+- Does gender factor into churn?
 
-- Do monthly charges different for different contract types?
+- Do monthly charges differ for different contract types?
 
 # Data Dictionary 
 
@@ -83,4 +83,3 @@ My main questions to support this:
 # Takeaways and Conclusions
 
 # Recommendations
->>>>>>> f602b3b (uploading updated readme and acquire and prepare files)
