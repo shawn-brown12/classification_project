@@ -8,6 +8,11 @@ def get_connection(db, user=username, host=host, password=password):
     return f'mysql+pymysql://{user}:{password}@{host}/{db}'
 
 def get_telco_data():
+    '''
+    This function will check locally if there's a telco.csv file in the local directory, and if not, working with the 
+    get_connection function, will pull the telco dataset from the Codeup MySQL server. After that, it will also save a copy of 
+    the csv locally if there wasn't one, so it doesn't have to run the query each time.
+    '''
     if os.path.isfile('telco.csv'):
         return pd.read_csv('telco.csv')
     else:
@@ -21,4 +26,4 @@ def get_telco_data():
                 '''
         telco = pd.read_sql(query, url)
         telco.to_csv('telco.csv')
-        return telco
+        return 
