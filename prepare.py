@@ -39,7 +39,7 @@ def prep_telco(df):
         'dependents', 'phone_service', 'multiple_lines', 'online_security', 
         'online_backup', 'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies', 
         'paperless_billing', 'payment_type', 'Unnamed: 0', 'payment_type_id', 'internet_service_type_id', 
-        'contract_type_id', 'customer_id', 'churn', 'churn_No']
+        'contract_type_id', 'churn', 'churn_No']
     df.drop(columns=drop, inplace=True)
                  
     return df
