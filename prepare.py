@@ -4,15 +4,6 @@ from env import host, username, password
 from scipy import stats
 from sklearn.model_selection import train_test_split
 
-#function to turn a dataset into train, validate, and test subsets
-def split_train_test(df, col):
-    
-    seed = 42
-    train, val_test = train_test_split(df, train_size=.5, random_state=seed, stratify=df[col])
-    validate, test = train_test_split(val_test, train_size=.6, random_state=seed, stratify=val_test[col])
-    
-    return train, validate, test
-
 #function to prepare telco_churn dataset for use
 def prep_telco(df):
     '''
