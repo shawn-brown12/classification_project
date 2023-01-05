@@ -112,6 +112,10 @@ My main questions to determine this:
 
 # Recommendations
 
-- Provide more appeal to staying with the company overall, but specifically for customers who have month-to-month contracts, possibly even make it more appealing for them to change to a one or two year contract.
+- Provide better support for customers with fiber optic internet.
 
-- Provide better service and customer service to those with fiber optic internet.
+- Make improvements to month to month contract plans to make it more appealing to customers.
+
+- Alternatively, or in addition to the above, make the one and two year contract types more appealing as customers with those churned significantly less.
+
+- Failing making any significant changes to the month-to-month contracts, maybe sending out emails to those customers most likely to churn, offering a deal or even just sending out surveys would be potentially helpful.
