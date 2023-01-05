@@ -44,19 +44,6 @@ def prep_telco(df):
     df.drop(columns=drop, inplace=True)
                  
     return df
-
-def make_baseline(df, baseline, col):
-    '''
-    This function is used to create a column within the dataframe to make a baseline column, and then calculate the baseline accuracy. Needs to be optimized more, but functions as is currently. Make sure to use the word 'baseline' when calling function.
-    '''
-    
-    seed = 42
-    
-    df[baseline] = df[col].value_counts().idxmax()    
-
-    base = (df[col] == df[baseline]).mean()
-    
-    print(f'Baseline Accuracy is: {base:.3}')
     
 def chi2_report(df, col, target):
     '''
@@ -82,29 +69,3 @@ def chi2_report(df, col, target):
 
     print('Is p-value < alpha?', p < alpha)
     
-def xy_train(train, validate, test):
-    '''
-    This function will separate each of my datasets (train, validate, and test) and split them further into my x and y sets for modeling. When running this, be sure to assign each of the six variables in the proper order, otherwise it will almost certainly mess up. (X_train, y_train, X_validate, y_validate, X_test, y_test)
-    '''
-    
-    seed = 42
-    
-    X_train = train.drop(columns=['contract_type', 
-                                  'internet_service_type', 
-                                  'churn_Yes',
-                                  'customer_id'])
-    y_train = train.churn_Yes
-
-    X_validate = validate.drop(columns=['contract_type', 
-                                   'internet_service_type', 
-                                   'churn_Yes',
-                                   'customer_id'])
-    y_validate = validate.churn_Yes
-
-    X_test = test.drop(columns=['contract_type', 
-                                'internet_service_type', 
-                                'churn_Yes',
-                                'customer_id'])
-    y_test = test.churn_Yes
-    
-    return X_train, y_train, X_validate, y_validate, X_test, y_test
