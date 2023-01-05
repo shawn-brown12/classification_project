@@ -43,3 +43,60 @@ def prep_telco(df):
     df.drop(columns=drop, inplace=True)
                  
     return df
+
+def make_baseline(df, baseline, col):
+    '''
+    This function is used to create a column within the dataframe to make a baseline column, and then calculate the baseline accuracy. Needs to be optimized more, but functions as is currently. Make sure to use the word 'baseline' when calling function.
+    '''
+    df[baseline] = df[col].value_counts().idxmax()    
+
+    base = (df[col] == df[baseline]).mean()
+    
+    print(f'Baseline Accuracy is: {base:.3}')
+    
+def chi2_report(df, col, target):
+    '''
+    This function is to be used to generate a crosstab for my observed data, and use that the run a chi2 test, and generate the report values from the test
+    '''
+    
+    observed = pd.crosstab(df[col], df[target])
+    
+    chi2, p, degf, expected = stats.chi2_contingency(observed)
+
+    alpha = .05
+    
+    print('Observed Values\n')
+    print(observed.values)
+    
+    print('---\nExpected Values\n')
+    print(expected.astype(int))
+    print('---\n')
+
+    print(f'chi^2 = {chi2:.4f}') 
+    print(f'p     = {p:.4f}')
+
+    print('Is p-value < alpha?', p < alpha)
+    
+def xy_train(train):
+    '''
+    This function will separate each of my datasets (train, validate, and test) and split them further into my x and y sets for modeling. When running this, be sure to assign each of the six variables in the proper order, otherwise it will almost certainly mess up. (X_train, y_train, X_validate, y_validate, X_test, y_test)
+    '''
+    X_train = train.drop(columns=['contract_type', 
+                                  'internet_service_type', 
+                                  'churn_Yes',
+                                  'customer_id'])
+    y_train = train.churn_Yes
+
+    X_validate = val.drop(columns=['contract_type', 
+                                   'internet_service_type', 
+                                   'churn_Yes',
+                                   'customer_id'])
+    y_validate = val.churn_Yes
+
+    X_test = test.drop(columns=['contract_type', 
+                                'internet_service_type', 
+                                'churn_Yes',
+                                'customer_id'])
+    y_test = test.churn_Yes
+    
+    return X_train, y_train, X_validate, y_validate, X_test, y_test
